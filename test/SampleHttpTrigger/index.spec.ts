@@ -3,6 +3,8 @@ import { Context } from '@azure/functions';
 import httpTrigger from "../../SampleHttpTrigger";
 
 const mockContext = mock<Context>();
+mockContext.log.warn = jest.fn();
+mockContext.log.verbose = jest.fn();
 
 test('"World" is passed as a name', async () => {
     const mockReq = {
